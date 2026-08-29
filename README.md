@@ -357,7 +357,7 @@ The `samples/` directory contains example images representing different quality 
 | `samples/overexposed.jpg` | Bright/washed out | Overexposure flagged |
 | `samples/noisy.jpg` | High ISO / grainy | Noise flagged |
 
-*(Add your own representative images to this folder before submission — one per condition above is sufficient.)*
+can download from sample inputs and check the sample outputs from code repo.
 
 ---
 
