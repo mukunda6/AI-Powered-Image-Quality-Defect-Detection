@@ -1,0 +1,40 @@
+{
+  "input_resolution": 224,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "target_score_scale": {
+    "min": 0,
+    "max": 100
+  },
+  "mos_denormalization": {
+    "raw_min": 0.0,
+    "raw_max": 0.948321376
+  },
+  "cv_feature_order": [
+    "laplacian_variance",
+    "mean_luminance",
+    "noise_std"
+  ],
+  "issue_thresholds": {
+    "blur_low": 100.0,
+    "underexposure": 50.0,
+    "overexposure": 200.0,
+    "noise_high": 15.0
+  },
+  "backbone": "mobilenet_v3_small",
+  "metrics": {
+    "plcc": 0.7964719709448542,
+    "srcc": 0.7562062095515523,
+    "rmse": 10.938111832479684
+  }
+}

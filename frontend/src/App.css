@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050914;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #67e8f9;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(103, 232, 249, 0.4);
+}
+
+header p {
+  color: #94a3b8;
+}
+
+.upload-card {
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.upload-card:hover {
+  border-color: rgba(103, 232, 249, 0.6);
+  box-shadow: 0 8px 40px rgba(56, 224, 224, 0.15);
+}
+
+.upload-card.drag-over {
+  border-color: #38e0e0;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.upload-placeholder p {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 20, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-weight: 600;
+  color: #67e8f9;
+}
+
+.error-text {
+  color: #f87171;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.result-card {
+  margin-top: 24px;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(103, 232, 249, 0.15);
+}
+
+.result-card h3 {
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 20px;
+  word-break: break-all;
+  font-size: 14px;
+}
+
+.score-circle {
+  width: 130px;
+  height: 130px;
+  border: 6px solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  background: rgba(5, 9, 20, 0.6);
+  box-shadow: 0 0 30px currentColor;
+}
+
+.score-value {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.score-label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  text-align: left;
+}
+
+.issue-badge {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 14px;
+  background: rgba(5, 9, 20, 0.6);
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.issue-name {
+  text-transform: capitalize;
+}
+
+.issue-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #94a3b8;
+}
