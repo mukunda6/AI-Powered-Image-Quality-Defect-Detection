@@ -92,12 +92,17 @@ image-quality-app/
 
 ## Dataset
 
-- **Source**: BIQ2021 image quality dataset (`BIQ2021.csv` + accompanying images), 12,000 images total.
+- **Source**: [BIQ2021: A Dataset for Image Quality Assessment](https://www.kaggle.com/datasets/nisarahmedrana/biq2021) (Kaggle) — `BIQ2021.csv` + accompanying images, 12,000 images total.
 - **Labels**: Mean Opinion Score (MOS) per image, originally on a `0–1` scale, plus a `StandardDeviation` column (not used for training).
 - **Split**: 10,000 train / 2,000 test, created via `sklearn.model_selection.train_test_split` (random seed fixed at 42) since the source data ships as a single CSV rather than pre-split files.
 - **Target normalization**: raw MOS values are linearly rescaled from their observed `[min, max]` range to a `[0, 100]` scale to match the API's output contract.
 
-Dataset is **not included in this repository** due to size; see `notebooks/training_pipeline.ipynb` for the exact loading and preprocessing code, and update the `ROOT` path to point at your local/Kaggle copy of BIQ2021.
+Dataset is **not included in this repository** due to size — download it directly from the Kaggle link above, or via the Kaggle API:
+```bash
+kaggle datasets download -d nisarahmedrana/biq2021
+```
+
+**Training notebook (Kaggle, fully executed)**: [AI-Powered Image Quality Defect Detection](https://www.kaggle.com/code/mothkumukundasai/ai-powered-image-quality-defect-detection) — contains the complete, runnable pipeline: dataset loading, MOS normalization, classical CV feature extraction, hybrid CNN model definition, training loop, evaluation (PLCC/SRCC/RMSE), and ONNX export. A copy is also included in this repo at `notebooks/training_pipeline.ipynb`.
 
 ---
 
@@ -135,7 +140,7 @@ Each metric is converted into a `severity` (`low` / `medium` / `high`) and a `co
 - Model exported to **ONNX** (opset 18) for fast, framework-independent inference in the backend.
 - `config.json` stores: input resolution, normalization mean/std, MOS denormalization bounds, CV feature order, and issue-detection thresholds — so the backend never hardcodes these values.
 
-The complete, runnable notebook (as executed in Kaggle) is included at `notebooks/training_pipeline.ipynb`.
+The complete, runnable notebook (as executed in Kaggle) is available at [kaggle.com/code/mothkumukundasai/ai-powered-image-quality-defect-detection](https://www.kaggle.com/code/mothkumukundasai/ai-powered-image-quality-defect-detection), and a copy is included in this repo at `notebooks/training_pipeline.ipynb`.
 
 ---
 
@@ -381,11 +386,9 @@ The backend currently allows all origins (`allow_origins=["*"]`) for development
 
 | Service | URL |
 |---|---|
-| Frontend (Vercel) | `https://<your-project>.vercel.app` |
-| Backend API (Render) | `https://<your-backend>.onrender.com` |
-| API Docs (Swagger) | `https://<your-backend>.onrender.com/docs` |
-
-(https://ai-powered-image-quality-defect-det-one.vercel.app/)
+| Frontend (Vercel) | [https://ai-powered-image-quality-defect-det-one.vercel.app](https://ai-powered-image-quality-defect-det-one.vercel.app/) |
+| Backend API (Render) | [https://iqa-api-nrb2.onrender.com](https://iqa-api-nrb2.onrender.com) |
+| API Docs (Swagger) | [https://iqa-api-nrb2.onrender.com/docs](https://iqa-api-nrb2.onrender.com/docs) |
 
 > **Note on free-tier hosting:** the backend is hosted on Render's free tier, which spins down after 15 minutes of inactivity. The first request after idle time may take 30–60 seconds while the service wakes up; subsequent requests are fast.
 
