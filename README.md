@@ -8,7 +8,8 @@ The system consists of three parts:
 1. **ML Pipeline** — trained and evaluated in Kaggle (dataset preprocessing, classical CV feature engine, hybrid CNN regression model, training, evaluation).
 2. **Backend API** — FastAPI service that loads the exported ONNX model and serves predictions.
 3. **Frontend** — React (Vite) single-page app for uploading an image and viewing results.
-
+   
+- **Live deployed URL**: https://ai-powered-image-quality-defect-det-one.vercel.app/
 ---
 
 ## Table of Contents
@@ -390,6 +391,7 @@ The backend currently allows all origins (`allow_origins=["*"]`) for development
 | Backend API (Render) | [https://iqa-api-nrb2.onrender.com](https://iqa-api-nrb2.onrender.com) |
 | API Docs (Swagger) | [https://iqa-api-nrb2.onrender.com/docs](https://iqa-api-nrb2.onrender.com/docs) |
 
+- **Live deployed URL**: https://ai-powered-image-quality-defect-det-one.vercel.app/
 > **Note on free-tier hosting:** the backend is hosted on Render's free tier, which spins down after 15 minutes of inactivity. The first request after idle time may take 30–60 seconds while the service wakes up; subsequent requests are fast.
 
 ---
