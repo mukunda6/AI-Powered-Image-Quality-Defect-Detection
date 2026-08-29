@@ -385,7 +385,7 @@ The backend currently allows all origins (`allow_origins=["*"]`) for development
 | Backend API (Render) | `https://<your-backend>.onrender.com` |
 | API Docs (Swagger) | `https://<your-backend>.onrender.com/docs` |
 
-*(Fill in with your actual live URLs before submission.)*
+(https://ai-powered-image-quality-defect-det-one.vercel.app/)
 
 > **Note on free-tier hosting:** the backend is hosted on Render's free tier, which spins down after 15 minutes of inactivity. The first request after idle time may take 30–60 seconds while the service wakes up; subsequent requests are fast.
 
